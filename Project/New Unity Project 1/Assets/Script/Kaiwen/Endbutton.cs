@@ -9,7 +9,7 @@ public class Endbutton : MonoBehaviour {
     }
     public void onEndbuttonClick()
     {
-        GameObject.Find("UI Root").GetComponent<crystal>().refresh();
+        GameObject.Find("UI Root").GetComponent<crystal>().turnchange();
     }
 
 	// Use this for initialization

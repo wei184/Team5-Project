@@ -182,31 +182,54 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\Kaiwen\Container_Controller.cs" />
      <Compile Include="Assets\Script\Kaiwen\Dragable.cs" />
+     <Compile Include="Assets\Script\Kaiwen\Ecarda.cs" />
+     <Compile Include="Assets\Script\Kaiwen\Efightcard.cs" />
      <Compile Include="Assets\Script\Kaiwen\Endbutton.cs" />
      <Compile Include="Assets\Script\Kaiwen\Fightcard.cs" />
+     <Compile Include="Assets\Script\Kaiwen\StartMenu.cs" />
      <Compile Include="Assets\Script\Kaiwen\attack.cs" />
      <Compile Include="Assets\Script\Kaiwen\carda.cs" />
      <Compile Include="Assets\Script\Kaiwen\crystal.cs" />
      <Compile Include="Assets\Script\Kaiwen\draganddrop.cs" />
      <Compile Include="Assets\Script\Kaiwen\dragging.cs" />
+     <Compile Include="Assets\Script\Kaiwen\edeck.cs" />
+     <Compile Include="Assets\Script\Kaiwen\egravecontainer.cs" />
+     <Compile Include="Assets\Script\Kaiwen\ehand.cs" />
+     <Compile Include="Assets\Script\Kaiwen\generate_deck.cs" />
+     <Compile Include="Assets\Script\Kaiwen\gravecontainer.cs" />
      <Compile Include="Assets\Script\Kaiwen\hand.cs" />
+     <Compile Include="Assets\Script\Kaiwen\open.cs" />
+     <Compile Include="Assets\Script\Kaiwen\opengrave.cs" />
+     <Compile Include="Assets\Script\Kaiwen\showcard.cs" />
+     <Compile Include="Assets\Script\Kaiwen\showgrave.cs" />
      <Compile Include="Assets\Script\Rei\ChangeNickname.cs" />
      <Compile Include="Assets\Script\Rei\ChangePassword.cs" />
      <Compile Include="Assets\Script\Rei\Login.cs" />
+     <Compile Include="Assets\Script\Rei\ReadCards.cs" />
      <Compile Include="Assets\Script\Rei\Register.cs" />
      <Compile Include="Assets\Script\Shin\Card.cs" />
      <Compile Include="Assets\Script\Shin\CardList.cs" />
+     <Compile Include="Assets\Script\Shin\CardList1.cs" />
      <Compile Include="Assets\Script\Shin\CardObject.cs" />
      <Compile Include="Assets\Script\Shin\CardPanel.cs" />
+     <Compile Include="Assets\Script\Shin\CardPanelSide.cs" />
      <Compile Include="Assets\Script\Shin\ComparisonComparator.cs" />
      <Compile Include="Assets\Script\Shin\DragHandler.cs" />
      <Compile Include="Assets\Script\Shin\EditDeckButton.cs" />
      <Compile Include="Assets\Script\Shin\GameRuleOverrider.cs" />
-     <Compile Include="Assets\Script\Shin\SortCards.cs" />
+     <Compile Include="Assets\Script\Shin\SampleCard.cs" />
+     <Compile Include="Assets\Script\Wayne\BlackMask.cs" />
+     <Compile Include="Assets\Script\Wayne\ChooseNPC.cs" />
      <Compile Include="Assets\Script\Wayne\HomeButton.cs" />
      <Compile Include="Assets\Script\Wayne\MainMenu.cs" />
-     <Compile Include="Assets\StartMenu.cs" />
-     <Compile Include="Assets\ehand.cs" />
+     <Compile Include="Assets\Script\Wayne\NPCselect.cs" />
+     <Compile Include="Assets\Script\Wayne\OptionShow.cs" />
+     <Compile Include="Assets\Script\Wayne\Profile1.cs" />
+     <Compile Include="Assets\Script\Wayne\ePlayerProfile.cs" />
+     <Compile Include="Assets\Script\Wayne\profileExample.cs" />
+     <Compile Include="Assets\Script\Wayne\profileSelect.cs" />
+     <Compile Include="Assets\Script\Wayne\profileShow.cs" />
+     <Compile Include="Assets\Script\Wayne\showLoading.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.8.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
@@ -248,7 +271,13 @@
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="LitJson">
- <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/LitJson.dll</HintPath>
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Plugins/LitJson.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Script/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

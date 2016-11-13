@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using MiniJSON;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
@@ -64,18 +66,20 @@ public class Login : MonoBehaviour {
 			password.GetComponent<InputField> ().text = "";
 			print ("Login Successful");
 			*/
+
 			StartCoroutine(DelayMethod(1.0f, () =>
 			{
 					Debug.Log("Delay call");
 				
 				print (checkLogin);
 				if (checkLogin == true) {
-					User user = new User (Username);
-					JsonData userJson = JsonMapper.ToJson (user);
-					File.WriteAllText (Application.dataPath + "/Resources/User.json", userJson.ToString ());
+					//User user = new User (Username);
+					//JsonData userJson = JsonMapper.ToJson (user);
+					//File.WriteAllText (Application.dataPath + "/Resources/User.json", userJson.ToString ());
 					Application.LoadLevel (2);
 				}
 			}));
+			
 			
 		}
 	}
@@ -104,8 +108,32 @@ public class Login : MonoBehaviour {
 		WWW www = new WWW (LoginURL, form);
 		yield return www;
 		Debug.Log (www.text);
-		//if (www.text == "login success")
+		if (!string.IsNullOrEmpty(www.error)) {
+			Debug.Log ("Error!");
+		} else {
+			Debug.Log ("Success");
+			//checkLogin = true;
+			IList jsonList = (IList)Json.Deserialize (www.text);
+			int[] arr = new int[30];
+			int n = 0;
+			string name;
+			string avatar;
+			foreach (IDictionary param in jsonList) {
+				name = (string)param ["username"];
+				avatar = (string)param["avatar"];
+				IList deck = (IList)param ["deck"];
+				Debug.Log ("username:" + name);
+				Debug.Log ("avatar:" + avatar);
+				foreach(string card in deck){
+					Debug.Log("card:"+card);
+					arr [n++] = Int32.Parse(card);
+				}
+				User user = new User (name, avatar, arr);
+				JsonData userJson = JsonMapper.ToJson (user);
+				File.WriteAllText (Application.dataPath + "/Resources/User.json", "[" + userJson.ToString () + "]");
+			}
 			checkLogin = true;
+		}
 	}
 
 	private IEnumerator DelayMethod(float waitTime, Action action)
@@ -118,8 +146,12 @@ public class Login : MonoBehaviour {
 
 public class User {
 	public string username;
+	public string avatar;
+	public int[] deck;
 
-	public User(string username) {
+	public User(string username, string avatar, int[] deck) {
 		this.username = username;
+		this.avatar = avatar;
+		this.deck = deck;
 	}
 }

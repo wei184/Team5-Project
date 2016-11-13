@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\MiniJSON.cs" />
      <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\MoveSample.cs" />
      <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\RotateSample.cs" />
      <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\SampleInfo.cs" />
@@ -90,7 +91,13 @@
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="LitJson">
- <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/LitJson.dll</HintPath>
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Plugins/LitJson.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Script/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

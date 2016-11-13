@@ -4,10 +4,34 @@ using System.Collections;
 public class carda : MonoBehaviour {
 
     private UISprite sprite;
-    private UILabel hpl;
-    private UILabel atkl;
+    public UILabel hpl;
+    public UILabel atkl;
+    public UILabel manal;
+    public UILabel des;
     public int atk;
     public int hp;
+    public int mana;
+    public bool canatk = false;
+    public Transform grave;
+    public Transform egrave;
+    public GameObject green;
+    public GameObject myparent;
+    public string description;
+    public GameObject back;
+    public enum Currentowner
+    {
+        player,
+        enemy
+    }
+    public enum Currentstate
+    {
+        deck,
+        hand,
+        grave,
+        field
+    }
+    public Currentowner owner;
+    public Currentstate state;
     private string CardName
     {
         get
@@ -15,17 +39,134 @@ public class carda : MonoBehaviour {
             return sprite.spriteName;
         }
     }
+    void Update()
+    {
+        if (owner == Currentowner.player)
+        {
+            if (state == Currentstate.deck)
+                back.SetActive(true);
+            else
+                back.SetActive(false);
+        }
+        else
+        {
+            if (state == Currentstate.field)
+                back.SetActive(false);
+            else
+                back.SetActive(true);
+        }
+		atkl.text = atk.ToString ();
+		hpl.text = hp.ToString ();
+		manal.text = mana.ToString ();
+
+    }
+    public void setstate(string description)
+    {
+        if (string.Compare(description,"die") == 0)
+        {
+            state = Currentstate.grave;
+        }
+        if (string.Compare(description, "hand") == 0)
+        {
+            state = Currentstate.hand;
+        }
+        if (string.Compare(description, "field") == 0)
+        {
+            state = Currentstate.field;
+        }
+
+    }
+    public void setowner(bool isplayer)
+    {
+        if (isplayer == true)
+            owner = Currentowner.player;
+        else
+            owner = Currentowner.enemy;
+    }
+    public void atkreset()
+    {
+        if (canatk == true)
+        {
+            canatk = false;
+            NGUITools.SetActive(green,false);
+        }
+        else
+        {
+            canatk = true;
+            NGUITools.SetActive(green, true);
+        }
+        }
+    public bool couldatk()
+    {
+        return canatk;
+    }
     void Awake()
     {
-        sprite = this.GetComponent<UISprite>();
+        /*sprite = this.GetComponent<UISprite>();*/
+        atk = int.Parse(atkl.text);
+        hp = int.Parse(hpl.text);
+        mana = int.Parse(manal.text);
+        grave = GameObject.Find("grave").transform;
+        egrave = GameObject.Find("egrave").transform;
+        description = "I am description";
+
     }
+    public int getmana()
+    {
+        return mana;
+    }
+    public int getatk()
+    {
+        return atk;
+    }
+    public int gethp()
+    {
+        return hp;
+    }
+
     public void reset()
     {
         atkl.text = atk + "";
         hpl.text = hp + "";
     }
-    private void getstat()
+    public void die()
     {
+        if (owner == Currentowner.player)
+        {
+            NGUITools.SetActive(green, false);
+            iTween.MoveTo(this.gameObject, grave.position, 0.5f);
+            GameObject.Find("grave").GetComponent<gravecontainer>().Addcard(this.gameObject);
+            GameObject.Find("Fight").GetComponent<Fightcard>().RemoveCard(this.gameObject);
+            state = Currentstate.grave;
 
+        }
+        else
+        {
+            iTween.MoveTo(this.gameObject, egrave.position, 0.5f);
+            GameObject.Find("egrave").GetComponent<egravecontainer>().Addcard(this.gameObject);
+            GameObject.Find("efight").GetComponent<Efightcard>().RemoveCard(this.gameObject);
+            state = Currentstate.grave;
+        }
+    }
+    public void takedamage(int n)
+    {
+        hp -= n;
+        if (hp <= 0)
+            die();
+    }
+    public void setstatus(int atk,int hp,int mana,string des)
+    {
+        this.atk = atk;
+        this.hp = hp;
+        this.mana = mana;
+        description = des;
+		atkl.text = atk.ToString ();
+		hpl.text = hp.ToString ();
+		manal.text = mana.ToString ();
+    }
+    void OnPress(bool isPressed)
+    {
+        if (state == Currentstate.hand && owner == Currentowner.player)
+        showcard._instance.show(atk,hp,mana,description);
     }
 }

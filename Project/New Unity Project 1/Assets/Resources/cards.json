@@ -1,0 +1,32 @@
+[  
+   {  
+      "id":1,
+      "name":"Wesley",
+      "cost":2,
+      "hp":3,
+      "atk":1,
+      "effect":1,
+	  "description":"lazy shit",
+      "sprite":"Sprite\\tarotcard"
+   },
+   {  
+      "id":2,
+      "name":"Wayne",
+      "cost":5,
+      "hp":5,
+      "atk":5,
+      "effect":1,
+	  "description":"good guy",
+      "sprite":"Sprite\\pressure"
+   },
+   {  
+      "id":3,
+      "name":"Kaiwen",
+      "cost":4,
+      "hp":4,
+      "atk":4,
+      "effect":1,
+	  "description":"hehehehe",
+      "sprite":"Sprite\\snailcard"
+   }
+]

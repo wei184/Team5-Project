@@ -187,7 +187,13 @@
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="LitJson">
- <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/LitJson.dll</HintPath>
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Plugins/LitJson.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>C:/Users/KaiWen/Desktop/Project/New Unity Project 1/Assets/Script/LitJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
